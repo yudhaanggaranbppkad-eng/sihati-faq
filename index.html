@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ SiHATI (Sistem Honorarium Terintegrasi)</title>
+  <meta name="description" content="Pertanyaan yang sering diajukan untuk aplikasi SiHATI: login, hak akses, input honor, batas eselon, rekap & cetak, keamanan, troubleshooting."/>
+  <style>
+    :root{
+      --bg:#0b1020;            /* Page background */
+      --panel:#10172a;         /* Card bg */
+      --muted:#8aa1c1;         /* Muted text */
+      --text:#e6f0ff;          /* Main text */
+      --primary:#60a5fa;       /* Accent */
+      --primary-2:#22d3ee;     /* Accent 2 */
+      --ring:#1f3a5f;          /* Focus ring */
+      --success:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --chip:#0f1a33;
+      --chip-active:#133158;
+      --divider:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, #1a237e44, transparent),
+                  radial-gradient(1000px 600px at 100% 10%, #0ea5e94a, transparent),
+                  var(--bg);
+      color:var(--text);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header.hero{
+      position:relative; border-bottom:1px solid var(--divider); padding: 40px 0 24px; margin-bottom: 8px;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:42px;height:42px;border-radius:12px;background: linear-gradient(135deg, #1e3a8a, #2563eb, #22d3ee); box-shadow: 0 10px 30px #2563eb55 inset, 0 6px 22px #22d3ee33 inset;}
+    h1{font-size: clamp(22px, 3.5vw, 34px); margin:0}
+    .subtitle{margin:6px 0 0;color:var(--muted)}
+
+    .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+    .search{flex:1 1 280px;position:relative}
+    .search input{
+      width:100%; background:var(--panel); color:var(--text); border:1px solid var(--divider);
+      border-radius:12px; padding:12px 42px 12px 44px; outline:none;
+    }
+    .search input:focus{border-color:var(--ring); box-shadow: 0 0 0 4px #1f3a5f55}
+    .search .icon{position:absolute;left:12px;top:50%;translate:0 -50%;opacity:.7}
+    .kbd{position:absolute;right:10px;top:50%;translate:0 -50%;opacity:.6;border:1px solid var(--divider);padding:2px 6px;border-radius:6px;font-size:12px}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--chip); border:1px solid var(--divider); color:var(--text); padding:8px 12px; border-radius:999px; cursor:pointer; user-select:none; font-size:14px}
+    .chip[aria-pressed="true"]{background:var(--chip-active); border-color:#1e40af}
+
+    .actions{display:flex;gap:8px;margin-left:auto}
+    .btn{background: linear-gradient(135deg, #0ea5e9, #2563eb); color:white; border:0; padding:10px 14px; border-radius:10px; cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid var(--divider)}
+
+    .grid{display:grid; grid-template-columns: 1fr; gap:14px; margin-top:18px}
+
+    details.faq{background:var(--panel); border:1px solid var(--divider); border-radius:14px; overflow:hidden}
+    details.faq summary{list-style:none; cursor:pointer; padding:14px 18px; display:flex; gap:10px; align-items:center}
+    details.faq summary::-webkit-details-marker{display:none}
+    .q{flex:1; font-weight:600}
+    .badge{font-size:12px; padding:4px 8px; border-radius:6px; border:1px solid #1d2a44; background:#0d162c;color:#9ec1ff}
+    .answer{padding: 0 18px 18px; color:#dbe7ff}
+    .answer p{margin: 10px 0}
+    .divider{height:1px;background:var(--divider);margin: 0 0 12px}
+    .meta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted)}
+    .tools{display:flex;gap:8px;margin-left:auto}
+    .tool{border:1px solid var(--divider);background:#0e1729;padding:8px;border-radius:8px;cursor:pointer}
+    .tool:hover{border-color:#2a3f68}
+
+    .callout{border-left:4px solid var(--primary); background:#0f1a33aa; padding:12px 14px; border-radius:10px;}
+    .yt{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--divider);border-radius:8px;text-decoration:none;color:var(--text)}
+    .yt:hover{border-color:#2a3f68}
+
+    footer{margin: 24px 0 60px; color:var(--muted); font-size:14px}
+    .small{font-size:12px;color:var(--muted)}
+
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>FAQ SiHATI</h1>
+          <p class="subtitle">Tanya–jawab ringkas untuk membantu Anda menggunakan aplikasi <b>SiHATI (Sistem Honorarium Terintegrasi)</b>.</p>
+        </div>
+      </div>
+
+      <div class="toolbar" role="region" aria-label="Pencarian & filter">
+        <div class="search">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Cari pertanyaan… (tekan / untuk fokus)" autocomplete="off" />
+          <span class="kbd">/</span>
+        </div>
+        <div class="chips" id="chips">
+          <button class="chip" data-cat="all" aria-pressed="true">Semua</button>
+          <button class="chip" data-cat="Akun & Login">Akun & Login</button>
+          <button class="chip" data-cat="Hak Akses">Hak Akses</button>
+          <button class="chip" data-cat="Input Honor">Input Honor</button>
+          <button class="chip" data-cat="Batas Eselon">Batas Eselon</button>
+          <button class="chip" data-cat="Rekap & Cetak">Rekap & Cetak</button>
+          <button class="chip" data-cat="Data & Keamanan">Data & Keamanan</button>
+          <button class="chip" data-cat="Troubleshooting">Troubleshooting</button>
+        </div>
+        <div class="actions">
+          <button id="expandAll" class="btn secondary">Buka Semua</button>
+          <button id="collapseAll" class="btn secondary">Tutup Semua</button>
+          <a class="btn" href="https://wa.me/6285869140160" target="_blank" rel="noopener">Kontak Admin</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="meta" aria-live="polite">
+      <span>Terakhir diperbarui: <span id="lastUpdated"></span></span>
+      <div class="tools" style="margin-left:auto">
+        <button class="tool" id="copyShare">🔗 Salin tautan halaman</button>
+      </div>
+    </section>
+
+    <div class="grid" id="faqGrid" role="list">
+
+      <!-- =================== AKUN & LOGIN =================== -->
+      <details class="faq" data-category="Akun & Login" id="faq-apa-itu-sihati" open>
+        <summary><span class="badge">Akun & Login</span><span class="q">Apa itu SiHATI?</span></summary>
+        <div class="answer">
+          <p><b>SiHATI</b> (Sistem Honorarium Terintegrasi) adalah aplikasi berbasis <i>Google Apps Script</i> untuk input, validasi, rekap, dan cetak honorarium tim dengan kontrol hak akses.</p>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_Pengenalan" target="_blank" rel="noopener" aria-label="Video pengenalan SiHATI">📺 Video: Pengenalan SiHATI</a>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Akun & Login" id="faq-siapa-bisa-login">
+        <summary><span class="badge">Akun & Login</span><span class="q">Siapa saja yang bisa login?</span></summary>
+        <div class="answer">
+          <p>Terdapat dua peran:
+            <ul>
+              <li><b>Admin</b> — kelola database ASN/Non‑ASN, hapus kegiatan, serta seluruh hak Pengguna.</li>
+              <li><b>Pengguna</b> — input honor tim & melihat rekap sesuai izin.</li>
+            </ul>
+          </p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Akun & Login" id="faq-lupa-password">
+        <summary><span class="badge">Akun & Login</span><span class="q">Saya lupa password, bagaimana resetnya?</span></summary>
+        <div class="answer">
+          <p>Hubungi <b>Admin SiHATI</b> untuk reset password melalui WhatsApp di tombol <i>Kontak Admin</i> di atas.</p>
+        </div>
+      </details>
+
+      <!-- =================== HAK AKSES =================== -->
+      <details class="faq" data-category="Hak Akses" id="faq-bedanya-admin-pengguna">
+        <summary><span class="badge">Hak Akses</span><span class="q">Apa bedanya hak akses Admin dan Pengguna?</span></summary>
+        <div class="answer">
+          <p><b>Admin</b> dapat menambah/mengubah/menghapus data ASN/Non-ASN, menghapus kegiatan, mengelola konfigurasi. <b>Pengguna</b> hanya menginput honor dan melihat rekap sesuai kewenangan.</p>
+          <div class="callout small">Catatan: Akses tercatat dalam <i>audit log</i> untuk tujuan akuntabilitas.</div>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_HakAkses" target="_blank" rel="noopener">📺 Video: Mengenal Hak Akses</a>
+        </div>
+      </details>
+
+      <!-- =================== INPUT HONOR =================== -->
+      <details class="faq" data-category="Input Honor" id="faq-cara-input-honor">
+        <summary><span class="badge">Input Honor</span><span class="q">Bagaimana cara input honor tim?</span></summary>
+        <div class="answer">
+          <ol>
+            <li>Buka menu <b>Input Honor</b>.</li>
+            <li>Pilih kegiatan & tanggal pelaksanaan.</li>
+            <li>Cari anggota tim (ASN/Non‑ASN) → sistem otomatis cek status & eselon.</li>
+            <li>Masukkan nilai honor dan simpan.</li>
+          </ol>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_InputHonor" target="_blank" rel="noopener">📺 Video: Langkah Input Honor</a>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Input Honor" id="faq-format-tanggal-nilai">
+        <summary><span class="badge">Input Honor</span><span class="q">Format tanggal & nilai yang benar?</span></summary>
+        <div class="answer">
+          <p>Gunakan format tanggal lokal (DD/MM/YYYY) dan nilai rupiah tanpa pemisah desimal (contoh: <b>150000</b>). Sistem akan memformat otomatis.</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Input Honor" id="faq-tambah-non-asn">
+        <summary><span class="badge">Input Honor</span><span class="q">Bagaimana menambahkan anggota Non‑ASN baru?</span></summary>
+        <div class="answer">
+          <p>Admin dapat menambahkan data Non‑ASN melalui menu <b>Database</b>, atau impor dari template spreadsheet.</p>
+        </div>
+      </details>
+
+      <!-- =================== BATAS ESELON =================== -->
+      <details class="faq" data-category="Batas Eselon" id="faq-batas-eselon">
+        <summary><span class="badge">Batas Eselon</span><span class="q">Apa batas input per eselon?</span></summary>
+        <div class="answer">
+          <ul>
+            <li><b>Eselon 2</b>: maksimal <b>2× per bulan</b></li>
+            <li><b>Eselon 3</b>: maksimal <b>3× per bulan</b></li>
+            <li><b>Eselon 4/JF</b>: maksimal <b>5× per bulan</b></li>
+            <li><b>PPPK & Non‑ASN</b>: <b>tidak dibatasi</b></li>
+          </ul>
+          <div class="callout small">Aturan mengikuti klasifikasi internal (contoh: Grobogan Klasifikasi 1). Sistem otomatis menghitung frekuensi pada bulan berjalan.</div>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_BatasEselon" target="_blank" rel="noopener">📺 Video: Logika Pembatasan Eselon</a>
+        </div>
+      </details>
+
+      <!-- =================== REKAP & CETAK =================== -->
+      <details class="faq" data-category="Rekap & Cetak" id="faq-rekap-cetak">
+        <summary><span class="badge">Rekap & Cetak</span><span class="q">Bagaimana cara rekap & cetak PDF?</span></summary>
+        <div class="answer">
+          <p>Masuk ke menu <b>Rekap/Cetak</b> → pilih <i>rentang tanggal</i> atau <i>kegiatan</i> → klik <b>Cetak PDF</b>. File mengikuti template yang telah ditetapkan.</p>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_CetakPDF" target="_blank" rel="noopener">📺 Video: Cetak PDF</a>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Rekap & Cetak" id="faq-export-excel">
+        <summary><span class="badge">Rekap & Cetak</span><span class="q">Bisakah ekspor ke Excel?</span></summary>
+        <div class="answer">
+          <p>Ya, gunakan tombol <b>Export Excel</b> (bila diaktifkan). Data akan diekspor sesuai filter yang dipilih.</p>
+        </div>
+      </details>
+
+      <!-- =================== DATA & KEAMANAN =================== -->
+      <details class="faq" data-category="Data & Keamanan" id="faq-di-mana-data">
+        <summary><span class="badge">Data & Keamanan</span><span class="q">Data disimpan di mana?</span></summary>
+        <div class="answer">
+          <p>Data tersimpan pada <b>Google Sheets</b> sesuai struktur yang dikonfigurasi (<i>DataPegawai, LogHonorTim,</i> dll.).</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Data & Keamanan" id="faq-siapa-bisa-lihat">
+        <summary><span class="badge">Data & Keamanan</span><span class="q">Siapa saja yang bisa melihat data?</span></summary>
+        <div class="answer">
+          <p>Hanya pengguna yang berwenang. Akses dan perubahan dicatat dalam <i>audit log</i> untuk keperluan pengawasan.</p>
+        </div>
+      </details>
+
+      <!-- =================== TROUBLESHOOTING =================== -->
+      <details class="faq" data-category="Troubleshooting" id="faq-sheet-tidak-ditemukan">
+        <summary><span class="badge">Troubleshooting</span><span class="q">Error “Sheet tidak ditemukan”.</span></summary>
+        <div class="answer">
+          <p>Pastikan nama sheet pada spreadsheet persis sesuai konfigurasi. Periksa huruf kapital/ spasi.</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Troubleshooting" id="faq-melebihi-batas-eselon">
+        <summary><span class="badge">Troubleshooting</span><span class="q">Peringatan “Sudah melebihi batas eselon”.</span></summary>
+        <div class="answer">
+          <p>Pengguna telah melampaui jumlah maksimal pada bulan berjalan. Lihat rekap frekuensi atau jadwalkan pada bulan berikutnya.</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Troubleshooting" id="faq-tidak-berizin">
+        <summary><span class="badge">Troubleshooting</span><span class="q">Pesan “Tidak berizin”.</span></summary>
+        <div class="answer">
+          <p>Fitur/halaman hanya untuk peran tertentu. Minta Admin menyesuaikan peran atau izinnya.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <footer>
+      <div class="divider" style="margin:20px 0"></div>
+      <p>Butuh bantuan lebih lanjut? Hubungi Admin melalui tombol di atas atau lihat playlist tutorial.</p>
+      <p class="small">© <span id="year"></span> SiHATI • Halaman ini dapat di-host gratis via <b>GitHub Pages</b> atau <b>Netlify</b>.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Populate year & last updated
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set last updated to today's local date
+    const d = new Date();
+    const fmt = d.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
+    document.getElementById('lastUpdated').textContent = fmt;
+
+    // Keyboard: focus search with '/'
+    const search = document.getElementById('search');
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === '/' && document.activeElement !== search){ e.preventDefault(); search.focus(); }
+    });
+
+    // Filter by category + search
+    const chips = document.querySelectorAll('.chip');
+    const faqs = Array.from(document.querySelectorAll('details.faq'));
+    let activeCat = 'all';
+    let q = '';
+
+    function applyFilters(){
+      const words = q.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      faqs.forEach(f => {
+        const cat = f.dataset.category;
+        const text = (f.querySelector('summary .q').textContent + ' ' + f.querySelector('.answer').textContent).toLowerCase();
+        const matchQ = words.every(w => text.includes(w));
+        const matchCat = (activeCat === 'all') || (cat === activeCat);
+        const visible = matchQ && matchCat;
+        f.style.display = visible ? '' : 'none';
+      });
+    }
+
+    chips.forEach(c => c.addEventListener('click', () => {
+      chips.forEach(k => k.setAttribute('aria-pressed','false'));
+      c.setAttribute('aria-pressed','true');
+      activeCat = c.dataset.cat;
+      applyFilters();
+    }));
+
+    search.addEventListener('input', e=>{ q = e.target.value; applyFilters(); });
+
+    // Expand / Collapse all
+    document.getElementById('expandAll').addEventListener('click', ()=> faqs.forEach(f => f.open = true));
+    document.getElementById('collapseAll').addEventListener('click', ()=> faqs.forEach(f => f.open = false));
+
+    // Copy page link
+    document.getElementById('copyShare').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(location.href);
+        const btn = document.getElementById('copyShare');
+        const old = btn.textContent; btn.textContent = '✅ Tautan disalin';
+        setTimeout(()=> btn.textContent = old, 1400);
+      }catch(e){ alert('Gagal menyalin tautan.'); }
+    });
+
+    // Support deep-link to a question via #id or ?q=
+    const url = new URL(location.href);
+    const queryQ = url.searchParams.get('q');
+    if(queryQ){ search.value = queryQ; q = queryQ; applyFilters(); }
+    if(location.hash){ const el = document.querySelector(location.hash); el && el.setAttribute('open',''); }
+  </script>
+
+  <!--
+  CARA DEPLOY GRATIS:
+  1) GitHub Pages
+     - Buat repo: sihati-faq
+     - Tambahkan file ini sebagai index.html (root)
+     - Settings → Pages → Deploy from a branch (main /root)
+     - Buka URL: https://username.github.io/sihati-faq/
+
+  2) Netlify Drop
+     - Kunjungi drop.netlify.com
+     - Drag & drop file index.html ini → Netlify buat URL gratis otomatis
+
+  3) Tambah tombol di Web App GAS (landing.html):
+     <a href="https://username.github.io/sihati-faq/" target="_blank">FAQ SiHATI</a>
+
+  GANTI TAUTAN VIDEO:
+  - Cari teks VIDEO_ID_* dan ganti dengan ID video YouTube Anda.
+  - Contoh tautan penuh: https://www.youtube.com/watch?v=ABCD1234
+  -->
+</body>
+</html>
