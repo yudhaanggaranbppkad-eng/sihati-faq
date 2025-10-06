@@ -103,13 +103,9 @@
         </div>
         <div class="chips" id="chips">
           <button class="chip" data-cat="all" aria-pressed="true">Semua</button>
-          <button class="chip" data-cat="Akun & Login">Akun & Login</button>
-          <button class="chip" data-cat="Hak Akses">Hak Akses</button>
-          <button class="chip" data-cat="Input Honor">Input Honor</button>
-          <button class="chip" data-cat="Batas Eselon">Batas Eselon</button>
-          <button class="chip" data-cat="Rekap & Cetak">Rekap & Cetak</button>
-          <button class="chip" data-cat="Data & Keamanan">Data & Keamanan</button>
-          <button class="chip" data-cat="Troubleshooting">Troubleshooting</button>
+          <button class="chip" data-cat="Akses & Akun">Akses & Akun</button>
+          <button class="chip" data-cat="Data Anggota & Input Kegiatan">Data Anggota & Input Kegiatan</button>
+          <button class="chip" data-cat="Perhitungan Honor & Rekap">Perhitungan Honor & Rekap</button>
         </div>
         <div class="actions">
           <button id="expandAll" class="btn secondary">Buka Semua</button>
@@ -128,142 +124,119 @@
 
     <div class="grid" id="faqGrid" role="list">
 
-      <!-- =================== AKUN & LOGIN =================== -->
-      <details class="faq" data-category="Akun & Login" id="faq-apa-itu-sihati" open>
-        <summary><span class="badge">Akun & Login</span><span class="q">Apa itu SiHATI?</span></summary>
+      <!-- =================== Kategori: Akses & Akun =================== -->
+      <details class="faq" data-category="Akses & Akun" id="q1-username-format" open>
+        <summary><span class="badge">Akses & Akun</span><span class="q">Apa format Username saya untuk login?</span></summary>
         <div class="answer">
-          <p><b>SiHATI</b> (Sistem Honorarium Terintegrasi) adalah aplikasi berbasis <i>Google Apps Script</i> untuk input, validasi, rekap, dan cetak honorarium tim dengan kontrol hak akses.</p>
+          <p><b>A:</b> Untuk <b>role Pengguna</b>, gunakan kredensial standar berikut:</p>
+          <ul>
+            <li><b>Username:</b> <code>user@skpd</code></li>
+            <li><b>Password awal:</b> <code>user@sihati</code></li>
+          </ul>
+          <p>Jika instansi Anda menerapkan format khusus, Admin akan memberitahukan secara resmi.</p>
+        </div>
+      </details>
+
+      
+
+      <details class="faq" data-category="Akses & Akun" id="q3-gagal-login">
+        <summary><span class="badge">Akses & Akun</span><span class="q">Saya tidak bisa login meskipun username dan password sudah benar.</span></summary>
+        <div class="answer">
+          <p><b>A:</b> Pastikan Anda menggunakan <b>URL Web App terbaru</b> yang sudah di-deploy. Jika masih gagal, akun Anda mungkin sedang <b>dinonaktifkan sementara</b>. Silakan hubungi Administrator.</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Akses & Akun" id="q4-tab-baru">
+        <summary><span class="badge">Akses & Akun</span><span class="q">Mengapa link di portal SiHATI membuka tab baru?</span></summary>
+        <div class="answer">
+          <p><b>A:</b> Ini adalah pengaturan keamanan agar halaman portal (tutorial/FAQ) tetap terbuka, sementara aplikasi utama berjalan di tab terpisah untuk menghindari error dan menjaga sesi.</p>
+        </div>
+      </details>
+
+      <!-- =================== Kategori: Data Anggota & Input Kegiatan =================== -->
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q5-non-asn-manual">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Bagaimana cara menambahkan anggota non-ASN/eksternal?</span></summary>
+        <div class="answer">
+          <p><b>A:</b> Di modul <b>Input Honorarium</b>, pilih opsi <b>“Non-ASN/Eksternal (Input Manual)”</b>. Gunakan <b>NIK</b> atau <b>ID unik</b> sebagai pengganti NIP. Catatan: input manual hanya untuk entri kegiatan—jika ingin tercatat permanen di database, hubungi Admin: <a class="yt" href="https://wa.me/6285869140160" target="_blank" rel="noopener">085869140160</a>.</p>
           <div class="divider"></div>
-          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_Pengenalan" target="_blank" rel="noopener" aria-label="Video pengenalan SiHATI">📺 Video: Pengenalan SiHATI</a>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_InputManual" target="_blank" rel="noopener">📺 Video: Input Non‑ASN/Eksternal</a>
         </div>
       </details>
 
-      <details class="faq" data-category="Akun & Login" id="faq-siapa-bisa-login">
-        <summary><span class="badge">Akun & Login</span><span class="q">Siapa saja yang bisa login?</span></summary>
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q6-data-asn-tidak-muncul">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Data pegawai ASN saya (Nama, SKPD, Golongan) tidak muncul saat memasukkan NIP.</span></summary>
         <div class="answer">
-          <p>Terdapat dua peran:
-            <ul>
-              <li><b>Admin</b> — kelola database ASN/Non‑ASN, hapus kegiatan, serta seluruh hak Pengguna.</li>
-              <li><b>Pengguna</b> — input honor tim & melihat rekap sesuai izin.</li>
-            </ul>
-          </p>
-        </div>
-      </details>
-
-      <details class="faq" data-category="Akun & Login" id="faq-lupa-password">
-        <summary><span class="badge">Akun & Login</span><span class="q">Saya lupa password, bagaimana resetnya?</span></summary>
-        <div class="answer">
-          <p>Hubungi <b>Admin SiHATI</b> untuk reset password melalui WhatsApp di tombol <i>Kontak Admin</i> di atas.</p>
-        </div>
-      </details>
-
-      <!-- =================== HAK AKSES =================== -->
-      <details class="faq" data-category="Hak Akses" id="faq-bedanya-admin-pengguna">
-        <summary><span class="badge">Hak Akses</span><span class="q">Apa bedanya hak akses Admin dan Pengguna?</span></summary>
-        <div class="answer">
-          <p><b>Admin</b> dapat menambah/mengubah/menghapus data ASN/Non-ASN, menghapus kegiatan, mengelola konfigurasi. <b>Pengguna</b> hanya menginput honor dan melihat rekap sesuai kewenangan.</p>
-          <div class="callout small">Catatan: Akses tercatat dalam <i>audit log</i> untuk tujuan akuntabilitas.</div>
+          <p><b>A:</b> Data diambil dari <b>database ASN</b>. Pastikan NIP benar. Jika masih tidak muncul, hubungi <b>Admin Data</b> untuk verifikasi entri NIP di database pusat melalui WhatsApp <a class="yt" href="https://wa.me/6285869140160" target="_blank" rel="noopener">085869140160</a>.</p>
           <div class="divider"></div>
-          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_HakAkses" target="_blank" rel="noopener">📺 Video: Mengenal Hak Akses</a>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_VerifikasiNIP" target="_blank" rel="noopener">📺 Video: Verifikasi NIP & Input Alternatif</a>
         </div>
       </details>
 
-      <!-- =================== INPUT HONOR =================== -->
-      <details class="faq" data-category="Input Honor" id="faq-cara-input-honor">
-        <summary><span class="badge">Input Honor</span><span class="q">Bagaimana cara input honor tim?</span></summary>
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q7-edit-kegiatan">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Apakah saya bisa mengedit kegiatan yang sudah di-submit?</span></summary>
         <div class="answer">
-          <ol>
-            <li>Buka menu <b>Input Honor</b>.</li>
-            <li>Pilih kegiatan & tanggal pelaksanaan.</li>
-            <li>Cari anggota tim (ASN/Non‑ASN) → sistem otomatis cek status & eselon.</li>
-            <li>Masukkan nilai honor dan simpan.</li>
-          </ol>
+          <p><b>A:</b> Ya. Buka <b>Daftar Kegiatan</b> → pilih entri → <b>Perbarui Honor Tim</b>. Data lama akan diganti dengan data baru saat Anda menyimpan perubahan.</p>
+        </div>
+      </details>
+
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q8-peringatan-limit">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Mengapa muncul peringatan limit saat memasukkan honor untuk anggota ASN tertentu?</span></summary>
+        <div class="answer">
+          <p><b>A:</b> Ada batas jumlah kegiatan per bulan berdasarkan eselon (misal: <b>Eselon 4</b> maksimal <b>5 kegiatan/bulan</b>). Jika batas tercapai, <b>entri tidak bisa ditambahkan</b>—sistem otomatis menolak untuk memastikan kepatuhan.</p>
           <div class="divider"></div>
-          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_InputHonor" target="_blank" rel="noopener">📺 Video: Langkah Input Honor</a>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_LimitEselon" target="_blank" rel="noopener">📺 Video: Peringatan Limit & Solusinya</a>
         </div>
       </details>
 
-      <details class="faq" data-category="Input Honor" id="faq-format-tanggal-nilai">
-        <summary><span class="badge">Input Honor</span><span class="q">Format tanggal & nilai yang benar?</span></summary>
-        <div class="answer">
-          <p>Gunakan format tanggal lokal (DD/MM/YYYY) dan nilai rupiah tanpa pemisah desimal (contoh: <b>150000</b>). Sistem akan memformat otomatis.</p>
-        </div>
-      </details>
-
-      <details class="faq" data-category="Input Honor" id="faq-tambah-non-asn">
-        <summary><span class="badge">Input Honor</span><span class="q">Bagaimana menambahkan anggota Non‑ASN baru?</span></summary>
-        <div class="answer">
-          <p>Admin dapat menambahkan data Non‑ASN melalui menu <b>Database</b>, atau impor dari template spreadsheet.</p>
-        </div>
-      </details>
-
-      <!-- =================== BATAS ESELON =================== -->
-      <details class="faq" data-category="Batas Eselon" id="faq-batas-eselon">
-        <summary><span class="badge">Batas Eselon</span><span class="q">Apa batas input per eselon?</span></summary>
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q8a-perbedaan-kategori">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Apa beda ASN dengan Non‑ASN/Eksternal/Input Manual/ASN Non Pemda?</span></summary>
         <div class="answer">
           <ul>
-            <li><b>Eselon 2</b>: maksimal <b>2× per bulan</b></li>
-            <li><b>Eselon 3</b>: maksimal <b>3× per bulan</b></li>
-            <li><b>Eselon 4/JF</b>: maksimal <b>5× per bulan</b></li>
-            <li><b>PPPK & Non‑ASN</b>: <b>tidak dibatasi</b></li>
+            <li><b>ASN Pemda Grobogan</b> (PNS/PPPK) — data tersedia via pencarian <b>NIP</b> dan <b>dibatasi eselon</b>.</li>
+            <li><b>ASN Non Pemda Grobogan</b> — contoh: Kejaksaan, Kepolisian, Pengadilan, instansi pusat/daerah lain.</li>
+            <li><b>Non‑ASN/Eksternal</b> — Honorer, THL, atau pihak eksternal lain.</li>
+            <li><b>Input Manual</b> — cara input untuk pihak di luar database ASN Pemda (pakai NIK/ID unik).</li>
           </ul>
-          <div class="callout small">Aturan mengikuti klasifikasi internal (contoh: Grobogan Klasifikasi 1). Sistem otomatis menghitung frekuensi pada bulan berjalan.</div>
+          <p>Kelompok <b>ASN Non Pemda</b> dan <b>Non‑ASN/Eksternal/Input Manual</b> <b>tidak diberi batasan eselon</b> pada frekuensi kegiatan.</p>
           <div class="divider"></div>
-          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_BatasEselon" target="_blank" rel="noopener">📺 Video: Logika Pembatasan Eselon</a>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_KategoriAnggota" target="_blank" rel="noopener">📺 Video: Kategori Anggota & Aturannya</a>
         </div>
       </details>
 
-      <!-- =================== REKAP & CETAK =================== -->
-      <details class="faq" data-category="Rekap & Cetak" id="faq-rekap-cetak">
-        <summary><span class="badge">Rekap & Cetak</span><span class="q">Bagaimana cara rekap & cetak PDF?</span></summary>
+      <details class="faq" data-category="Data Anggota & Input Kegiatan" id="q8b-cakupan-nip">
+        <summary><span class="badge">Data Anggota & Input Kegiatan</span><span class="q">Database pencarian NIP mencakup siapa saja?</span></summary>
         <div class="answer">
-          <p>Masuk ke menu <b>Rekap/Cetak</b> → pilih <i>rentang tanggal</i> atau <i>kegiatan</i> → klik <b>Cetak PDF</b>. File mengikuti template yang telah ditetapkan.</p>
+          <p><b>A:</b> Pencarian <b>NIP</b> hanya mencakup <b>ASN Pemda Grobogan</b>, yang perhitungannya <b>dibatasi oleh eselon</b>. Untuk <b>ASN Non Pemda</b> dan <b>Non‑ASN/Eksternal</b>, gunakan <b>Input Manual</b> (NIK/ID unik) dan frekuensi <b>tidak dibatasi eselon</b>.</p>
           <div class="divider"></div>
-          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_CetakPDF" target="_blank" rel="noopener">📺 Video: Cetak PDF</a>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_CakupanNIP" target="_blank" rel="noopener">📺 Video: Cakupan NIP vs Input Manual</a>
         </div>
       </details>
 
-      <details class="faq" data-category="Rekap & Cetak" id="faq-export-excel">
-        <summary><span class="badge">Rekap & Cetak</span><span class="q">Bisakah ekspor ke Excel?</span></summary>
+      <!-- =================== Kategori: Perhitungan Honor & Rekap =================== -->
+      <details class="faq" data-category="Perhitungan Honor & Rekap" id="q9-pph21">
+        <summary><span class="badge">Perhitungan Honor & Rekap</span><span class="q">Bagaimana sistem menghitung PPh 21 secara otomatis?</span></summary>
         <div class="answer">
-          <p>Ya, gunakan tombol <b>Export Excel</b> (bila diaktifkan). Data akan diekspor sesuai filter yang dipilih.</p>
+          <p><b>A:</b> PPh 21 dihitung berdasarkan ketentuan internal: contoh <b>Golongan IV: 15%</b>, <b>Golongan III: 5%</b>, <b>PPPK: 5%</b>. Untuk <b>Non‑ASN/eksternal</b> digunakan persentase manual (default <b>15%</b>).</p>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_PPh21" target="_blank" rel="noopener">📺 Video: PPh21 & Kategori Personil</a>
         </div>
       </details>
 
-      <!-- =================== DATA & KEAMANAN =================== -->
-      <details class="faq" data-category="Data & Keamanan" id="faq-di-mana-data">
-        <summary><span class="badge">Data & Keamanan</span><span class="q">Data disimpan di mana?</span></summary>
+      <details class="faq" data-category="Perhitungan Honor & Rekap" id="q10-cetak-semua">
+        <summary><span class="badge">Perhitungan Honor & Rekap</span><span class="q">Bisakah saya mencetak laporan honor untuk semua kegiatan sekaligus?</span></summary>
         <div class="answer">
-          <p>Data tersimpan pada <b>Google Sheets</b> sesuai struktur yang dikonfigurasi (<i>DataPegawai, LogHonorTim,</i> dll.).</p>
+          <p><b>A:</b> Bisa. Gunakan menu <b>Cetak PDF</b> / <b>Rekap Excel Semua Kegiatan</b> di sidebar untuk mengkompilasi seluruh data menjadi satu file PDF/Excel.</p>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_CetakRekap" target="_blank" rel="noopener">📺 Video: Cetak PDF & Rekap Excel</a>
         </div>
       </details>
 
-      <details class="faq" data-category="Data & Keamanan" id="faq-siapa-bisa-lihat">
-        <summary><span class="badge">Data & Keamanan</span><span class="q">Siapa saja yang bisa melihat data?</span></summary>
+      <details class="faq" data-category="Perhitungan Honor & Rekap" id="q11-riwayat-anggota">
+        <summary><span class="badge">Perhitungan Honor & Rekap</span><span class="q">Apakah saya bisa mencari riwayat kegiatan seorang anggota tim?</span></summary>
         <div class="answer">
-          <p>Hanya pengguna yang berwenang. Akses dan perubahan dicatat dalam <i>audit log</i> untuk keperluan pengawasan.</p>
-        </div>
-      </details>
-
-      <!-- =================== TROUBLESHOOTING =================== -->
-      <details class="faq" data-category="Troubleshooting" id="faq-sheet-tidak-ditemukan">
-        <summary><span class="badge">Troubleshooting</span><span class="q">Error “Sheet tidak ditemukan”.</span></summary>
-        <div class="answer">
-          <p>Pastikan nama sheet pada spreadsheet persis sesuai konfigurasi. Periksa huruf kapital/ spasi.</p>
-        </div>
-      </details>
-
-      <details class="faq" data-category="Troubleshooting" id="faq-melebihi-batas-eselon">
-        <summary><span class="badge">Troubleshooting</span><span class="q">Peringatan “Sudah melebihi batas eselon”.</span></summary>
-        <div class="answer">
-          <p>Pengguna telah melampaui jumlah maksimal pada bulan berjalan. Lihat rekap frekuensi atau jadwalkan pada bulan berikutnya.</p>
-        </div>
-      </details>
-
-      <details class="faq" data-category="Troubleshooting" id="faq-tidak-berizin">
-        <summary><span class="badge">Troubleshooting</span><span class="q">Pesan “Tidak berizin”.</span></summary>
-        <div class="answer">
-          <p>Fitur/halaman hanya untuk peran tertentu. Minta Admin menyesuaikan peran atau izinnya.</p>
+          <p><b>A:</b> Bisa. Gunakan menu <b>Cari Anggota Kegiatan</b> di sidebar, masukkan <b>Nama</b>, <b>NIP</b>, atau <b>NIK</b> untuk melihat daftar kegiatan yang pernah diikutinya.</p>
+          <div class="divider"></div>
+          <a class="yt" href="https://www.youtube.com/watch?v=VIDEO_ID_RiwayatAnggota" target="_blank" rel="noopener">📺 Video: Pencarian Riwayat Anggota</a>
         </div>
       </details>
 
